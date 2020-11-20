@@ -1,0 +1,105 @@
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct
+{
+    int num_capt;
+    int valeur;
+    char type[20];
+} mesure;
+
+typedef struct
+{
+    int val_ideale_temp;
+    int val_ideale_hum;
+     mesure m;
+} capteurs;
+
+void ajouter_capteur(mesure m,int tab[],int n);
+void afficher_capteur(mesure m,int tab[],int n);
+void afficher_num_capt_defectueux(mesure m,capteurs c);
+
+int main()
+{
+    
+    capteurs c;
+    mesure m;
+    int i,n;
+    do
+    {
+        printf("donner n:");
+        scanf("%d",&n);
+    }
+    while((n<0)||(n>100));
+
+   void ajouter_capteur(mesure m,int tab[],int n);
+   void afficher_capteur(mesure m,int tab[],int n);
+
+   void afficher_num_capteur_defectueux(mesure m,capteurs c);
+
+}
+   void ajouter_capteur(mesure m,int tab[],int n)
+   {
+      file *f; 
+      int i;
+      f=fopen("home/hazar/Documents/gestion des capteurs","a+");
+      if(f!=null)
+      {
+       for(i=0;i<n;i++)
+         {
+           printf("donner les informations du tableau mesure %d",i+1);
+           do
+           {
+               gets(m.type);
+           }
+           while((strcpy(m.type,"temperature"))|| (strcpy(m.type,"humidite")));
+           scanf("%d",&m.num_capt);
+           scanf("%d",&m.valeur);
+         }
+     fclose(f);
+     }
+     else
+     printf("impossible d'ouvrir le fichier");
+   }
+   void afficher_capteur(mesure m,int tab[],int n)
+   {
+     file *f;
+     int j;
+     f=fopen("home/hazar/Documents/gestion des capteurs","r+");
+     if(f!=null)
+    {
+     for(j=0;j<n;j++)
+        {
+         fprintf("le capteur de type=%s \n de numero num_capt=%d \n a pour valeur=%d ",j+1,m.type,m.num_capt,m.valeur);
+        }
+     
+     fclose(f);
+     }
+     else
+    printf("impossible d'ouvrir le fichier");
+   }
+   void afficher_num_capteur_defectueux(mesure m,capteurs c)
+   {
+   file *f;
+   int i,n;
+    f=fopen("home/hazar/Documents/gestion des capteurs","r");
+    if(f!=null)
+    {
+   for(i=0;i<n;i++)
+     {
+       if ((m.type=="temperature") &&(m.valeur!= c.val_ideale_temp))
+        return (m.num_capt);
+        else
+       if((m.type=="humidite") &&(m.valeur!=c.val_ideale_hum))
+       return(m.num_capt);
+       else
+       return (" ");
+      }
+   fclose(f);
+   }
+   else
+   printf("impossible d'ouvrir le fichier");
+   
+
+   }
+
+
